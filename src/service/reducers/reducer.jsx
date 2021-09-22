@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   country: [],
+  error: null,
 };
 export default function countryFetch(state = initialState, action) {
   switch (action.type) {
@@ -14,7 +15,6 @@ export default function countryFetch(state = initialState, action) {
           console.log(response);
         }),
       };
-      break;
     default:
       return state;
   }
