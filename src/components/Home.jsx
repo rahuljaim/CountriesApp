@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MockContent from "../mock/countriesRegion";
 
 export default class Home extends Component {
   constructor(props) {
@@ -13,8 +14,8 @@ export default class Home extends Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state.region);
+    console.log("home component", this.props);
+    //console.log(this.state.region);
     return (
       <div>
         <h1>Home Component</h1>
@@ -24,12 +25,16 @@ export default class Home extends Component {
             return this.regionHandler(e);
           }}
         >
-          <option value="africa">Africa</option>
-          <option value="america">America</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
+          {MockContent.regionDropDown.map((e) => {
+            return (
+              <option value={e.id} key={e.id}>
+                {e.name}
+              </option>
+            );
+          })}
         </select>
         <button
+          className="btn btn-primary"
           onClick={() => this.props.fetchCountryHandler(this.state.region)}
         >
           Fetch Data

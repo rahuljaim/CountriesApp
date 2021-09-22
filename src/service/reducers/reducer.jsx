@@ -8,7 +8,7 @@ const initialState = {
 export default function countryFetch(state = initialState, action) {
   switch (action.type) {
     case AXIOS_FETCH:
-      console.warn("reducer", action);
+      console.log("reducer", action);
       return {
         ...state,
         countries: axios.get(action.data).then((response) => {
